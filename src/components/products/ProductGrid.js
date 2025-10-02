@@ -57,6 +57,7 @@ function ProductGrid({ onShowProductDetails }) {
                 {/* Grid de productos */}
                 <Col lg={9}>
                     <div className="products-section">
+                        <div className="products-content">
                         {/* Header de productos */}
                         <div className="products-header mb-4">
                             <div className="d-flex justify-content-between align-items-center flex-wrap">
@@ -126,6 +127,7 @@ function ProductGrid({ onShowProductDetails }) {
                                 </p>
                             </div>
                         )}
+                        </div>
                     </div>
                 </Col>
             </Row>
