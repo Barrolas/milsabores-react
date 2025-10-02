@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { CART_CONFIG } from '../data/constants';
+import { getProductById } from '../data/productosDB';
 
 // Estado inicial del carrito
 const initialState = {
@@ -167,18 +168,27 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: CART_ACTIONS.SET_LOADING, payload: true });
     
     try {
-      // Aquí deberías obtener el producto desde tu servicio de productos
-      // Por ahora, simulamos la estructura del producto
+      // Obtener el producto real desde la base de datos
+      const productData = getProductById(productId);
+      
+      if (!productData) {
+        dispatch({ type: CART_ACTIONS.SET_ERROR, payload: 'Producto no encontrado' });
+        return;
+      }
+      
+      // Crear el producto para el carrito con los datos reales
       const product = {
-        id: productId,
-        nombre: `Producto ${productId}`,
-        precio: 10000,
+        id: productData.id,
+        nombre: productData.nombre,
+        precio: productData.precio,
         cantidad: quantity,
-        imagen: '/assets/images/logo-milsabores.png'
+        imagen: productData.imagen,
+        descripcion: productData.descripcion
       };
       
       dispatch({ type: CART_ACTIONS.ADD_ITEM, payload: product });
     } catch (error) {
+      console.error('Error al agregar producto al carrito:', error);
       dispatch({ type: CART_ACTIONS.SET_ERROR, payload: 'Error al agregar producto al carrito' });
     }
   };
