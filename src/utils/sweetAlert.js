@@ -124,16 +124,49 @@ export const showLoginSuccessAlert = () => {
 
 /**
  * Muestra una alerta de registro exitoso
+ * @param {Object} benefits - Beneficios obtenidos por el usuario
  */
-export const showRegisterSuccessAlert = () => {
-    return showSuccessAlert(
-        '¡Registro Exitoso!',
-        'Tu cuenta ha sido creada correctamente. Ahora puedes iniciar sesión.',
-        {
-            timer: 3000,
-            timerProgressBar: true
-        }
-    );
+export const showRegisterSuccessAlert = (benefits = {}) => {
+    const hasBenefits = benefits.duocBenefit || benefits.ageDiscount || benefits.promoCode;
+    
+    if (hasBenefits) {
+        // Construir lista de beneficios
+        const benefitsList = [];
+        if (benefits.duocBenefit) benefitsList.push(`🎂 ${benefits.duocBenefit}`);
+        if (benefits.ageDiscount) benefitsList.push(`💰 ${benefits.ageDiscount}`);
+        if (benefits.promoCode) benefitsList.push(`🎁 ${benefits.promoCode}`);
+        
+        return Swal.fire({
+            ...swalConfig,
+            title: '🎉 ¡Registro Exitoso!',
+            html: `
+                <div class="text-center">
+                    <p class="mb-3">Tu cuenta ha sido creada correctamente. ¡Disfruta de tus beneficios!</p>
+                    <div class="alert alert-success d-inline-block">
+                        <strong>🎁 ¡Beneficios obtenidos!</strong>
+                        <div class="benefits-list text-start mt-2">
+                            ${benefitsList.map(benefit => `<small class="d-block">${benefit}</small>`).join('')}
+                        </div>
+                    </div>
+                    <p class="mt-3 small text-muted">Ahora puedes iniciar sesión</p>
+                </div>
+            `,
+            icon: 'success',
+            confirmButtonText: '¡Perfecto!',
+            timer: 5000,
+            timerProgressBar: true,
+            showConfirmButton: true
+        });
+    } else {
+        return showSuccessAlert(
+            '¡Registro Exitoso!',
+            'Tu cuenta ha sido creada correctamente. Ahora puedes iniciar sesión.',
+            {
+                timer: 3000,
+                timerProgressBar: true
+            }
+        );
+    }
 };
 
 /**
@@ -150,45 +183,72 @@ export const showFormIncompleteAlert = () => {
  * Muestra una alerta de descuento por edad
  */
 export const showAgeDiscountAlert = () => {
-    return showSuccessAlert(
-        '🎉 ¡Descuento Especial!',
-        'Por ser mayor de 50 años, recibes un 50% de descuento en todos nuestros productos.',
-        {
-            confirmButtonText: '¡Genial!',
-            timer: 5000,
-            timerProgressBar: true
-        }
-    );
+    return Swal.fire({
+        ...swalConfig,
+        title: '🎉 ¡Descuento Especial!',
+        html: `
+            <div class="text-center">
+                <p class="mb-3">Por tu edad, obtienes:</p>
+                <div class="alert alert-warning d-inline-block">
+                    <strong>💰 50% de descuento en todas tus compras</strong>
+                </div>
+                <p class="mt-3 small text-muted">Válido para todos los productos</p>
+            </div>
+        `,
+        icon: 'success',
+        confirmButtonText: '¡Excelente!',
+        timer: 5000,
+        showConfirmButton: true,
+        allowOutsideClick: false
+    });
 };
 
 /**
  * Muestra una alerta de torta gratis para estudiantes Duoc
  */
 export const showDuocBenefitAlert = () => {
-    return showSuccessAlert(
-        '🎂 ¡Torta Gratis!',
-        'Como estudiante de Duoc, recibes una torta gratis en tu cumpleaños.',
-        {
-            confirmButtonText: '¡Excelente!',
-            timer: 5000,
-            timerProgressBar: true
-        }
-    );
+    return Swal.fire({
+        ...swalConfig,
+        title: '🎓 ¡Beneficio Duoc UC!',
+        html: `
+            <div class="text-center">
+                <p class="mb-3">Al usar tu email de Duoc UC, obtienes:</p>
+                <div class="alert alert-success d-inline-block">
+                    <strong>🎂 Torta gratis en tu cumpleaños</strong>
+                </div>
+                <p class="mt-3 small text-muted">Presenta tu cédula de identidad en tu cumpleaños</p>
+            </div>
+        `,
+        icon: 'success',
+        confirmButtonText: '¡Genial!',
+        timer: 5000,
+        showConfirmButton: true,
+        allowOutsideClick: false
+    });
 };
 
 /**
  * Muestra una alerta de descuento por código
  */
 export const showCodeDiscountAlert = () => {
-    return showSuccessAlert(
-        '🎊 ¡Código Válido!',
-        'Con el código FELICES50 recibes un 10% de descuento de por vida.',
-        {
-            confirmButtonText: '¡Perfecto!',
-            timer: 5000,
-            timerProgressBar: true
-        }
-    );
+    return Swal.fire({
+        ...swalConfig,
+        title: '🎁 ¡Código Válido!',
+        html: `
+            <div class="text-center">
+                <p class="mb-3">Tu código de descuento te da:</p>
+                <div class="alert alert-info d-inline-block">
+                    <strong>💸 10% de descuento adicional</strong>
+                </div>
+                <p class="mt-3 small text-muted">Se aplicará automáticamente en el checkout</p>
+            </div>
+        `,
+        icon: 'success',
+        confirmButtonText: '¡Perfecto!',
+        timer: 4000,
+        showConfirmButton: true,
+        allowOutsideClick: false
+    });
 };
 
 /**
@@ -271,7 +331,7 @@ export const showSuccessToast = (message) => {
  * @param {string} message - Mensaje a mostrar
  */
 export const showErrorToast = (message) => {
-    return Swal.fire({
+    return     Swal.fire({
         position: 'top-end',
         icon: 'error',
         title: message,
@@ -280,3 +340,4 @@ export const showErrorToast = (message) => {
         toast: true
     });
 };
+

@@ -6,7 +6,7 @@ import { FaUserPlus, FaEye, FaEyeSlash, FaUser, FaEnvelope, FaLock, FaBirthdayCa
 import { Link, useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import { useAuth } from '../hooks/useAuth';
-import { showRegisterSuccessAlert, showFormIncompleteAlert, showAgeDiscountAlert, showDuocBenefitAlert, showCodeDiscountAlert, showInvalidCodeAlert } from '../utils/sweetAlert';
+import { showFormIncompleteAlert, showAgeDiscountAlert, showDuocBenefitAlert, showCodeDiscountAlert, showInvalidCodeAlert } from '../utils/sweetAlert';
 import './Register.css';
 
 function Register() {
@@ -23,24 +23,113 @@ function Register() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [benefits, setBenefits] = useState({});
+    const [benefits, setBenefits] = useState({
+        duocBenefit: '',
+        ageDiscount: '',
+        codeDiscount: ''
+    });
     
-    const { register, validateRegisterForm } = useAuth();
+    const { register, validateRegisterForm, validateField } = useAuth();
     const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
+        const newFormData = {
+            ...formData,
             [name]: value
-        }));
+        };
         
-        // Limpiar error del campo cuando el usuario empiece a escribir
+        setFormData(newFormData);
+        
+        // Validar en tiempo real si ya hay un error en el campo
         if (errors[name]) {
+            const validation = validateField(name, value, 'register', newFormData);
+            
+            if (validation.isValid) {
+                // Limpiar error si ahora es válido
+                setErrors(prev => ({
+                    ...prev,
+                    [name]: ''
+                }));
+            }
+        }
+        
+        // Si cambió la contraseña, re-validar la confirmación de contraseña
+        if (name === 'password' && errors.confirmPassword) {
+            const confirmPasswordValidation = validateField('confirmPassword', newFormData.confirmPassword, 'register', newFormData);
+            
+            if (confirmPasswordValidation.isValid) {
+                setErrors(prev => ({
+                    ...prev,
+                    confirmPassword: ''
+                }));
+            } else {
+                setErrors(prev => ({
+                    ...prev,
+                    confirmPassword: confirmPasswordValidation.message
+                }));
+            }
+        }
+    };
+
+    const handleInputBlur = async (e) => {
+        const { name, value } = e.target;
+        
+        // Validar campo individual cuando el usuario sale del campo
+        const validation = validateField(name, value, 'register', formData);
+        
+        if (!validation.isValid) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: validation.message
+            }));
+        } else {
             setErrors(prev => ({
                 ...prev,
                 [name]: ''
             }));
+
+            // Verificar beneficios y mostrar alertas
+            if (name === 'email' && value.trim() !== '') {
+                // Verificar beneficio de Duoc
+                const isDuoc = value.trim().endsWith('@duoc.cl');
+                if (isDuoc && !benefits.duocBenefit) {
+                    setBenefits(prev => ({
+                        ...prev,
+                        duocBenefit: 'Torta gratis en cumpleaños'
+                    }));
+                    await showDuocBenefitAlert();
+                }
+            }
+
+            if (name === 'fechaNacimiento' && value !== '') {
+                // Verificar beneficio por edad
+                const fecha = new Date(value);
+                const hoy = new Date();
+                const edad = hoy.getFullYear() - fecha.getFullYear();
+                
+                if (edad >= 50 && !benefits.ageDiscount) {
+                    setBenefits(prev => ({
+                        ...prev,
+                        ageDiscount: '50% de descuento'
+                    }));
+                    await showAgeDiscountAlert();
+                }
+            }
+
+            if (name === 'codigoDescuento' && value.trim() !== '') {
+                // Verificar código de descuento
+                const codigoValido = value.trim().toUpperCase() === 'FELICES50';
+                if (codigoValido && !benefits.codeDiscount) {
+                    setBenefits(prev => ({
+                        ...prev,
+                        codeDiscount: '10% de descuento adicional'
+                    }));
+                    await showCodeDiscountAlert();
+                } else if (!codigoValido) {
+                    await showInvalidCodeAlert();
+                }
+            }
         }
     };
 
@@ -58,23 +147,13 @@ function Register() {
                 return;
             }
 
-            // Mostrar beneficios si los hay
-            if (validation.benefits.duocBenefit) {
-                await showDuocBenefitAlert();
-            }
-            if (validation.benefits.ageDiscount) {
-                await showAgeDiscountAlert();
-            }
-            if (validation.benefits.promoCode) {
-                await showCodeDiscountAlert();
-            }
+            // No mostrar alertas individuales aquí - se mostrarán en la alerta de registro exitoso
 
             // Intentar registro
             const result = await register(formData);
             
             if (result.success) {
                 setBenefits(result.benefits);
-                await showRegisterSuccessAlert();
                 
                 // Redirigir al login después del registro exitoso
                 setTimeout(() => {
@@ -123,6 +202,7 @@ function Register() {
                                         </Alert>
                                     )}
 
+
                                     <Form onSubmit={handleSubmit}>
                                         <Row>
                                             {/* Campo Nombre */}
@@ -137,6 +217,7 @@ function Register() {
                                                         name="nombre"
                                                         value={formData.nombre}
                                                         onChange={handleInputChange}
+                                                        onBlur={handleInputBlur}
                                                         placeholder="Tu nombre"
                                                         className={`form-control ${errors.nombre ? 'is-invalid' : ''}`}
                                                         disabled={isSubmitting}
@@ -161,6 +242,7 @@ function Register() {
                                                         name="apellido"
                                                         value={formData.apellido}
                                                         onChange={handleInputChange}
+                                                        onBlur={handleInputBlur}
                                                         placeholder="Tu apellido"
                                                         className={`form-control ${errors.apellido ? 'is-invalid' : ''}`}
                                                         disabled={isSubmitting}
@@ -185,6 +267,7 @@ function Register() {
                                                 name="email"
                                                 value={formData.email}
                                                 onChange={handleInputChange}
+                                                onBlur={handleInputBlur}
                                                 placeholder="tu@email.com"
                                                 className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                                                 disabled={isSubmitting}
@@ -207,6 +290,7 @@ function Register() {
                                                 name="fechaNacimiento"
                                                 value={formData.fechaNacimiento}
                                                 onChange={handleInputChange}
+                                                onBlur={handleInputBlur}
                                                 className={`form-control ${errors.fechaNacimiento ? 'is-invalid' : ''}`}
                                                 disabled={isSubmitting}
                                             />
@@ -229,6 +313,7 @@ function Register() {
                                                     name="password"
                                                     value={formData.password}
                                                     onChange={handleInputChange}
+                                                    onBlur={handleInputBlur}
                                                     placeholder="Mínimo 8 caracteres"
                                                     className={`form-control ${errors.password ? 'is-invalid' : ''}`}
                                                     disabled={isSubmitting}
@@ -262,6 +347,7 @@ function Register() {
                                                     name="confirmPassword"
                                                     value={formData.confirmPassword}
                                                     onChange={handleInputChange}
+                                                    onBlur={handleInputBlur}
                                                     placeholder="Repite tu contraseña"
                                                     className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`}
                                                     disabled={isSubmitting}
@@ -294,6 +380,7 @@ function Register() {
                                                 name="codigoDescuento"
                                                 value={formData.codigoDescuento}
                                                 onChange={handleInputChange}
+                                                onBlur={handleInputBlur}
                                                 placeholder="Ingresa tu código"
                                                 className={`form-control ${errors.codigoDescuento ? 'is-invalid' : ''}`}
                                                 disabled={isSubmitting}
@@ -328,6 +415,29 @@ function Register() {
                                                 </>
                                             )}
                                         </Button>
+
+                                        {/* Sección de beneficios obtenidos */}
+                                        {(benefits.duocBenefit || benefits.ageDiscount || benefits.codeDiscount) && (
+                                            <Alert variant="success" className="benefits-alert mt-3">
+                                                <div className="d-flex align-items-center">
+                                                    <i className="fas fa-gift me-2"></i>
+                                                    <div>
+                                                        <strong>¡Beneficios obtenidos!</strong>
+                                                        <div className="benefits-list">
+                                                            {benefits.duocBenefit && (
+                                                                <small className="d-block">🎂 {benefits.duocBenefit}</small>
+                                                            )}
+                                                            {benefits.ageDiscount && (
+                                                                <small className="d-block">💰 {benefits.ageDiscount}</small>
+                                                            )}
+                                                            {benefits.codeDiscount && (
+                                                                <small className="d-block">🎁 {benefits.codeDiscount}</small>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Alert>
+                                        )}
                                     </Form>
 
                                     {/* Enlaces adicionales */}

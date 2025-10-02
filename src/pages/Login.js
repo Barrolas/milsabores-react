@@ -18,7 +18,7 @@ function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     
-    const { login, validateLoginForm } = useAuth();
+    const { login, validateLoginForm, validateField } = useAuth();
     const navigate = useNavigate();
 
     const handleInputChange = (e) => {
@@ -28,8 +28,32 @@ function Login() {
             [name]: value
         }));
         
-        // Limpiar error del campo cuando el usuario empiece a escribir
+        // Validar en tiempo real si ya hay un error en el campo
         if (errors[name]) {
+            const validation = validateField(name, value, 'login');
+            
+            if (validation.isValid) {
+                // Limpiar error si ahora es válido
+                setErrors(prev => ({
+                    ...prev,
+                    [name]: ''
+                }));
+            }
+        }
+    };
+
+    const handleInputBlur = (e) => {
+        const { name, value } = e.target;
+        
+        // Validar campo individual cuando el usuario sale del campo
+        const validation = validateField(name, value, 'login');
+        
+        if (!validation.isValid) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: validation.message
+            }));
+        } else {
             setErrors(prev => ({
                 ...prev,
                 [name]: ''
@@ -75,8 +99,8 @@ function Login() {
     return (
         <Layout>
             <div className="login-page">
-                <Container>
-                    <Row className="justify-content-center min-vh-100 align-items-center">
+                <Container style={{ paddingBottom: '1rem' }}>
+                    <Row className="justify-content-center" style={{ minHeight: '70vh', alignItems: 'center', paddingTop: '1rem', paddingBottom: '0' }}>
                         <Col md={6} lg={5} xl={4}>
                             <Card className="login-card">
                                 <Card.Header className="login-header">
@@ -110,6 +134,7 @@ function Login() {
                                                 name="email"
                                                 value={formData.email}
                                                 onChange={handleInputChange}
+                                                onBlur={handleInputBlur}
                                                 placeholder="Ingresa tu email"
                                                 className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                                                 disabled={isSubmitting}
@@ -133,6 +158,7 @@ function Login() {
                                                     name="password"
                                                     value={formData.password}
                                                     onChange={handleInputChange}
+                                                    onBlur={handleInputBlur}
                                                     placeholder="Ingresa tu contraseña"
                                                     className={`form-control ${errors.password ? 'is-invalid' : ''}`}
                                                     disabled={isSubmitting}

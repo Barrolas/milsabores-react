@@ -141,7 +141,7 @@
 }
 
 .product-actions .btn {
-    border-radius: 8px;
+    border-radius: 25px;
     font-weight: 600;
     transition: all 0.3s ease;
     position: relative;
@@ -346,6 +346,16 @@
 }
 
 .product-actions .btn:focus {
+    background-color: #d63384;
+    border-color: #d63384;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);
+}
+
+.product-actions .btn-outline-primary:focus {
+    background-color: #e83e8c;
+    border-color: #e83e8c;
+    color: white;
     box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);
 }
 

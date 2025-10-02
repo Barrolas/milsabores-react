@@ -110,7 +110,7 @@
 
 .search-input::placeholder {
   color: #6c757d;
-  font-style: italic;
+  font-style: normal;
 }
 
 /* Estilos para el ícono de búsqueda */

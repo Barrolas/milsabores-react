@@ -1,0 +1,470 @@
+[1mdiff --git a/src/components/layout/Navbar.css b/src/components/layout/Navbar.css[m
+[1mindex 55b35cd..3a17c4d 100644[m
+[1m--- a/src/components/layout/Navbar.css[m
+[1m+++ b/src/components/layout/Navbar.css[m
+[36m@@ -110,7 +110,7 @@[m
+ [m
+ .search-input::placeholder {[m
+   color: #6c757d;[m
+[31m-  font-style: italic;[m
+[32m+[m[32m  font-style: normal;[m
+ }[m
+ [m
+ /* Estilos para el ícono de búsqueda */[m
+[1mdiff --git a/src/components/products/ProductCard.css b/src/components/products/ProductCard.css[m
+[1mindex d3e9516..079554a 100644[m
+[1m--- a/src/components/products/ProductCard.css[m
+[1m+++ b/src/components/products/ProductCard.css[m
+[36m@@ -141,7 +141,7 @@[m
+ }[m
+ [m
+ .product-actions .btn {[m
+[31m-    border-radius: 8px;[m
+[32m+[m[32m    border-radius: 25px;[m
+     font-weight: 600;[m
+     transition: all 0.3s ease;[m
+     position: relative;[m
+[36m@@ -346,6 +346,16 @@[m
+ }[m
+ [m
+ .product-actions .btn:focus {[m
+[32m+[m[32m    background-color: #d63384;[m
+[32m+[m[32m    border-color: #d63384;[m
+[32m+[m[32m    color: white;[m
+[32m+[m[32m    box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.product-actions .btn-outline-primary:focus {[m
+[32m+[m[32m    background-color: #e83e8c;[m
+[32m+[m[32m    border-color: #e83e8c;[m
+[32m+[m[32m    color: white;[m
+     box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);[m
+ }[m
+ [m
+[1mdiff --git a/src/components/products/ProductFilters.css b/src/components/products/ProductFilters.css[m
+[1mindex ea5e965..816fb0a 100644[m
+[1m--- a/src/components/products/ProductFilters.css[m
+[1m+++ b/src/components/products/ProductFilters.css[m
+[36m@@ -148,7 +148,7 @@[m
+ [m
+ .search-input::placeholder {[m
+     color: #6c757d;[m
+[31m-    font-style: italic;[m
+[32m+[m[32m    font-style: normal;[m
+ }[m
+ [m
+ /* Estilos para filtros de precio */[m
+[1mdiff --git a/src/components/products/ProductModal.css b/src/components/products/ProductModal.css[m
+[1mindex fbf41e0..ce817e7 100644[m
+[1m--- a/src/components/products/ProductModal.css[m
+[1m+++ b/src/components/products/ProductModal.css[m
+[36m@@ -742,11 +742,42 @@[m
+     pointer-events: none;[m
+ }[m
+ [m
+[32m+[m[32m/* Estilos para todos los botones del modal */[m
+[32m+[m[32m.product-modal .btn {[m
+[32m+[m[32m    border-radius: 25px;[m
+[32m+[m[32m    font-weight: 600;[m
+[32m+[m[32m    transition: all 0.3s ease;[m
+[32m+[m[32m}[m
+[32m+[m
+ /* Estilos para accesibilidad */[m
+ .product-modal .btn:focus {[m
+[32m+[m[32m    background-color: #d63384;[m
+[32m+[m[32m    border-color: #d63384;[m
+[32m+[m[32m    color: white;[m
+[32m+[m[32m    box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.product-modal .btn-outline-primary:focus {[m
+[32m+[m[32m    background-color: #e83e8c;[m
+[32m+[m[32m    border-color: #e83e8c;[m
+[32m+[m[32m    color: white;[m
+     box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);[m
+ }[m
+ [m
+[32m+[m[32m.product-modal .btn-outline-secondary:focus {[m
+[32m+[m[32m    background-color: #6c757d;[m
+[32m+[m[32m    border-color: #6c757d;[m
+[32m+[m[32m    color: white;[m
+[32m+[m[32m    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.product-modal .btn-outline-danger:focus {[m
+[32m+[m[32m    background-color: #dc3545;[m
+[32m+[m[32m    border-color: #dc3545;[m
+[32m+[m[32m    color: white;[m
+[32m+[m[32m    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);[m
+[32m+[m[32m}[m
+[32m+[m
+ /* Estilos para el estado de error */[m
+ .product-modal.error .modal-header {[m
+     background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);[m
+[1mdiff --git a/src/hooks/useAuth.js b/src/hooks/useAuth.js[m
+[1mindex 217f105..e1479cb 100644[m
+[1m--- a/src/hooks/useAuth.js[m
+[1m+++ b/src/hooks/useAuth.js[m
+[36m@@ -169,7 +169,7 @@[m [mexport const useAuth = () => {[m
+             }[m
+ [m
+             // Simular registro exitoso[m
+[31m-            await showRegisterSuccessAlert();[m
+[32m+[m[32m            await showRegisterSuccessAlert(validation.benefits);[m
+             [m
+             // Simular usuario registrado[m
+             const newUser = {[m
+[36m@@ -207,9 +207,10 @@[m [mexport const useAuth = () => {[m
+      * @param {string} fieldName - Nombre del campo[m
+      * @param {string} value - Valor del campo[m
+      * @param {string} formType - Tipo de formulario ('login' o 'register')[m
+[32m+[m[32m     * @param {Object} formData - Datos completos del formulario (opcional, necesario para confirmPassword)[m
+      * @returns {Object} { isValid: boolean, message: string }[m
+      */[m
+[31m-    const validateField = useCallback((fieldName, value, formType = 'login') => {[m
+[32m+[m[32m    const validateField = useCallback((fieldName, value, formType = 'login', formData = null) => {[m
+         switch (fieldName) {[m
+             case 'email':[m
+                 return validateEmailField(value);[m
+[36m@@ -223,7 +224,9 @@[m [mexport const useAuth = () => {[m
+             case 'fechaNacimiento':[m
+                 return validateBirthDateField(value);[m
+             case 'confirmPassword':[m
+[31m-                return validatePasswordConfirmation(value, value);[m
+[32m+[m[32m                // Si tenemos los datos del formulario, usar la contraseña actual[m
+[32m+[m[32m                const password = formData && formData.password ? formData.password : '';[m
+[32m+[m[32m                return validatePasswordConfirmation(password, value);[m
+             default:[m
+                 return { isValid: true, message: '' };[m
+         }[m
+[1mdiff --git a/src/pages/Login.css b/src/pages/Login.css[m
+[1mindex 6829492..90ef204 100644[m
+[1m--- a/src/pages/Login.css[m
+[1m+++ b/src/pages/Login.css[m
+[36m@@ -1,15 +1,16 @@[m
+ /* Estilos para la página Login */[m
+ [m
+ .login-page {[m
+[31m-    background: linear-gradient(135deg, #e83e8c 0%, #d63384 100%);[m
+[32m+[m[32m    background-color: #fdf2f8;[m
+     min-height: 100vh;[m
+[31m-    padding: 2rem 0;[m
+[32m+[m[32m    padding: 1rem 0 0 0;[m
+[32m+[m[32m    margin-bottom: 0;[m
+ }[m
+ [m
+ .login-card {[m
+     border: none;[m
+     border-radius: 20px;[m
+[31m-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);[m
+[32m+[m[32m    box-shadow: 0 15px 40px rgba(232, 62, 140, 0.15);[m
+     overflow: hidden;[m
+     background: white;[m
+ }[m
+[36m@@ -82,7 +83,7 @@[m
+ [m
+ .form-control::placeholder {[m
+     color: #6c757d;[m
+[31m-    font-style: italic;[m
+[32m+[m[32m    font-style: normal;[m
+ }[m
+ [m
+ /* Estilos para el input de contraseña */[m
+[36m@@ -364,8 +365,30 @@[m
+     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);[m
+ }[m
+ [m
+[32m+[m[32m/* Estilos para mensajes de validación */[m
+[32m+[m[32m.invalid-feedback {[m
+[32m+[m[32m    display: block;[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    margin-top: 0.25rem;[m
+[32m+[m[32m    font-size: 0.875rem;[m
+[32m+[m[32m    color: #dc3545;[m
+[32m+[m[32m    font-weight: 500;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.valid-feedback {[m
+[32m+[m[32m    display: block;[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    margin-top: 0.25rem;[m
+[32m+[m[32m    font-size: 0.875rem;[m
+[32m+[m[32m    color: #28a745;[m
+[32m+[m[32m    font-weight: 500;[m
+[32m+[m[32m}[m
+[32m+[m
+ /* Estilos para el estado de focus en el botón */[m
+ .login-btn:focus {[m
+[32m+[m[32m    background-color: #d63384;[m
+[32m+[m[32m    border-color: #d63384;[m
+[32m+[m[32m    color: white;[m
+     box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);[m
+ }[m
+ [m
+[1mdiff --git a/src/pages/Login.js b/src/pages/Login.js[m
+[1mindex 44e578d..c22af5c 100644[m
+[1m--- a/src/pages/Login.js[m
+[1m+++ b/src/pages/Login.js[m
+[36m@@ -18,7 +18,7 @@[m [mfunction Login() {[m
+     const [showPassword, setShowPassword] = useState(false);[m
+     const [isSubmitting, setIsSubmitting] = useState(false);[m
+     [m
+[31m-    const { login, validateLoginForm } = useAuth();[m
+[32m+[m[32m    const { login, validateLoginForm, validateField } = useAuth();[m
+     const navigate = useNavigate();[m
+ [m
+     const handleInputChange = (e) => {[m
+[36m@@ -28,8 +28,32 @@[m [mfunction Login() {[m
+             [name]: value[m
+         }));[m
+         [m
+[31m-        // Limpiar error del campo cuando el usuario empiece a escribir[m
+[32m+[m[32m        // Validar en tiempo real si ya hay un error en el campo[m
+         if (errors[name]) {[m
+[32m+[m[32m            const validation = validateField(name, value, 'login');[m
+[32m+[m[41m            [m
+[32m+[m[32m            if (validation.isValid) {[m
+[32m+[m[32m                // Limpiar error si ahora es válido[m
+[32m+[m[32m                setErrors(prev => ({[m
+[32m+[m[32m                    ...prev,[m
+[32m+[m[32m                    [name]: ''[m
+[32m+[m[32m                }));[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    };[m
+[32m+[m
+[32m+[m[32m    const handleInputBlur = (e) => {[m
+[32m+[m[32m        const { name, value } = e.target;[m
+[32m+[m[41m        [m
+[32m+[m[32m        // Validar campo individual cuando el usuario sale del campo[m
+[32m+[m[32m        const validation = validateField(name, value, 'login');[m
+[32m+[m[41m        [m
+[32m+[m[32m        if (!validation.isValid) {[m
+[32m+[m[32m            setErrors(prev => ({[m
+[32m+[m[32m                ...prev,[m
+[32m+[m[32m                [name]: validation.message[m
+[32m+[m[32m            }));[m
+[32m+[m[32m        } else {[m
+             setErrors(prev => ({[m
+                 ...prev,[m
+                 [name]: ''[m
+[36m@@ -75,8 +99,8 @@[m [mfunction Login() {[m
+     return ([m
+         <Layout>[m
+             <div className="login-page">[m
+[31m-                <Container>[m
+[31m-                    <Row className="justify-content-center min-vh-100 align-items-center">[m
+[32m+[m[32m                <Container style={{ paddingBottom: '1rem' }}>[m
+[32m+[m[32m                    <Row className="justify-content-center" style={{ minHeight: '70vh', alignItems: 'center', paddingTop: '1rem', paddingBottom: '0' }}>[m
+                         <Col md={6} lg={5} xl={4}>[m
+                             <Card className="login-card">[m
+                                 <Card.Header className="login-header">[m
+[36m@@ -110,6 +134,7 @@[m [mfunction Login() {[m
+                                                 name="email"[m
+                                                 value={formData.email}[m
+                                                 onChange={handleInputChange}[m
+[32m+[m[32m                                                onBlur={handleInputBlur}[m
+                                                 placeholder="Ingresa tu email"[m
+                                                 className={`form-control ${errors.email ? 'is-invalid' : ''}`}[m
+                                                 disabled={isSubmitting}[m
+[36m@@ -133,6 +158,7 @@[m [mfunction Login() {[m
+                                                     name="password"[m
+                                                     value={formData.password}[m
+                                                     onChange={handleInputChange}[m
+[32m+[m[32m                                                    onBlur={handleInputBlur}[m
+                                                     placeholder="Ingresa tu contraseña"[m
+                                                     className={`form-control ${errors.password ? 'is-invalid' : ''}`}[m
+                                                     disabled={isSubmitting}[m
+[1mdiff --git a/src/pages/Register.css b/src/pages/Register.css[m
+[1mindex a4acdd1..24b5b7f 100644[m
+[1m--- a/src/pages/Register.css[m
+[1m+++ b/src/pages/Register.css[m
+[36m@@ -1,7 +1,7 @@[m
+ /* Estilos para la página Register */[m
+ [m
+ .register-page {[m
+[31m-    background: linear-gradient(135deg, #e83e8c 0%, #d63384 100%);[m
+[32m+[m[32m    background-color: #fdf2f8;[m
+     min-height: 100vh;[m
+     padding: 2rem 0;[m
+ }[m
+[36m@@ -9,7 +9,7 @@[m
+ .register-card {[m
+     border: none;[m
+     border-radius: 20px;[m
+[31m-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);[m
+[32m+[m[32m    box-shadow: 0 15px 40px rgba(232, 62, 140, 0.15);[m
+     overflow: hidden;[m
+     background: white;[m
+ }[m
+[36m@@ -82,7 +82,7 @@[m
+ [m
+ .form-control::placeholder {[m
+     color: #6c757d;[m
+[31m-    font-style: italic;[m
+[32m+[m[32m    font-style: normal;[m
+ }[m
+ [m
+ /* Estilos para los inputs de contraseña */[m
+[36m@@ -184,6 +184,32 @@[m
+     margin-bottom: 1.5rem;[m
+ }[m
+ [m
+[32m+[m[32m/* Estilos para la alerta de beneficios */[m
+[32m+[m[32m.benefits-alert {[m
+[32m+[m[32m    border: none;[m
+[32m+[m[32m    border-radius: 15px;[m
+[32m+[m[32m    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);[m
+[32m+[m[32m    border-left: 4px solid #28a745;[m
+[32m+[m[32m    animation: slideInDown 0.5s ease-out;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.benefits-list small {[m
+[32m+[m[32m    color: #155724;[m
+[32m+[m[32m    font-weight: 500;[m
+[32m+[m[32m    margin-top: 0.25rem;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m@keyframes slideInDown {[m
+[32m+[m[32m    from {[m
+[32m+[m[32m        opacity: 0;[m
+[32m+[m[32m        transform: translateY(-20px);[m
+[32m+[m[32m    }[m
+[32m+[m[32m    to {[m
+[32m+[m[32m        opacity: 1;[m
+[32m+[m[32m        transform: translateY(0);[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+ /* Estilos para el texto de ayuda */[m
+ .form-text {[m
+     font-size: 0.85rem;[m
+[36m@@ -382,6 +408,9 @@[m
+ [m
+ /* Estilos para el estado de focus en el botón */[m
+ .register-btn:focus {[m
+[32m+[m[32m    background-color: #d63384;[m
+[32m+[m[32m    border-color: #d63384;[m
+[32m+[m[32m    color: white;[m
+     box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);[m
+ }[m
+ [m
+[1mdiff --git a/src/pages/Register.js b/src/pages/Register.js[m
+[1mindex 5b0f97c..42ef2c7 100644[m
+[1m--- a/src/pages/Register.js[m
+[1m+++ b/src/pages/Register.js[m
+[36m@@ -6,7 +6,7 @@[m [mimport { FaUserPlus, FaEye, FaEyeSlash, FaUser, FaEnvelope, FaLock, FaBirthdayCa[m
+ import { Link, useNavigate } from 'react-router-dom';[m
+ import Layout from '../components/layout/Layout';[m
+ import { useAuth } from '../hooks/useAuth';[m
+[31m-import { showRegisterSuccessAlert, showFormIncompleteAlert, showAgeDiscountAlert, showDuocBenefitAlert, showCodeDiscountAlert, showInvalidCodeAlert } from '../utils/sweetAlert';[m
+[32m+[m[32mimport { showFormIncompleteAlert, showAgeDiscountAlert, showDuocBenefitAlert, showCodeDiscountAlert, showInvalidCodeAlert } from '../utils/sweetAlert';[m
+ import './Register.css';[m
+ [m
+ function Register() {[m
+[36m@@ -23,24 +23,113 @@[m [mfunction Register() {[m
+     const [showPassword, setShowPassword] = useState(false);[m
+     const [showConfirmPassword, setShowConfirmPassword] = useState(false);[m
+     const [isSubmitting, setIsSubmitting] = useState(false);[m
+[31m-    const [benefits, setBenefits] = useState({});[m
+[32m+[m[32m    const [benefits, setBenefits] = useState({[m
+[32m+[m[32m        duocBenefit: '',[m
+[32m+[m[32m        ageDiscount: '',[m
+[32m+[m[32m        codeDiscount: ''[m
+[32m+[m[32m    });[m
+     [m
+[31m-    const { register, validateRegisterForm } = useAuth();[m
+[32m+[m[32m    const { register, validateRegisterForm, validateField } = useAuth();[m
+     const navigate = useNavigate();[m
+ [m
+     const handleInputChange = (e) => {[m
+         const { name, value } = e.target;[m
+[31m-        setFormData(prev => ({[m
+[31m-            ...prev,[m
+[32m+[m[32m        const newFormData = {[m
+[32m+[m[32m            ...formData,[m
+             [name]: value[m
+[31m-        }));[m
+[32m+[m[32m        };[m
+[32m+[m[41m        [m
+[32m+[m[32m        setFormData(newFormData);[m
+         [m
+[31m-        // Limpiar error del campo cuando el usuario empiece a escribir[m
+[32m+[m[32m        // Validar en tiempo real si ya hay un error en el campo[m
+         if (errors[name]) {[m
+[32m+[m[32m            const validation = validateField(name, value, 'register', newFormData);[m
+[32m+[m[41m            [m
+[32m+[m[32m            if (validation.isValid) {[m
+[32m+[m[32m                // Limpiar error si ahora es válido[m
+[32m+[m[32m                setErrors(prev => ({[m
+[32m+[m[32m                    ...prev,[m
+[32m+[m[32m                    [name]: ''[m
+[32m+[m[32m                }));[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[41m        [m
+[32m+[m[32m        // Si cambió la contraseña, re-validar la confirmación de contraseña[m
+[32m+[m[32m        if (name === 'password' && errors.confirmPassword) {[m
+[32m+[m[32m            const confirmPasswordValidation = validateField('confirmPassword', newFormData.confirmPassword, 'register', newFormData);[m
+[32m+[m[41m            [m
+[32m+[m[32m            if (confirmPasswordValidation.isValid) {[m
+[32m+[m[32m                setErrors(prev => ({[m
+[32m+[m[32m                    ...prev,[m
+[32m+[m[32m                    confirmPassword: ''[m
+[32m+[m[32m                }));[m
+[32m+[m[32m            } else {[m
+[32m+[m[32m                setErrors(prev => ({[m
+[32m+[m[32m                    ...prev,[m
+[32m+[m[32m                    confirmPassword: confirmPasswordValidation.message[m
+[32m+[m[32m                }));[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    };[m
+[32m+[m
+[32m+[m[32m    const handleInputBlur = async (e) => {[m
+[32m+[m[32m        const { name, value } = e.target;[m
+[32m+[m[41m        [m
+[32m+[m[32m        // Validar campo individual cuando el usuario sale del campo[m
+[32m+[m[32m        const validation = validateField(name, value, 'register', formData);[m
+[32m+[m[41m        [m
+[32m+[m[32m        if (!validation.isValid) {[m
+[32m+[m[32m            setErrors(prev => ({[m
+[32m+[m[32m                ...prev,[m
+[32m+[m[32m                [name]: validation.message[m
+[32m+[m[32m            }));[m
+[32m+[m[32m        } else {[m
+             setErrors(prev => ({[m
+                 ...prev,[m
+                 [name]: ''[m
+             }));[m
+[32m+[m
+[32m+[m[32m            // Verificar beneficios y mostrar alertas[m
+[32m+[m[32m            if (name === 'email' && value.trim() !== '') {[m
+[32m+[m[32m                // Verificar beneficio de Duoc[m
+[32m+[m[32m                const isDuoc = value.trim().endsWith('@duoc.cl');[m
+[32m+[m[32m                if (isDuoc && !benefits.duocBenefit) {[m
+[32m+[m[32m                    setBenefits(prev => ({[m
+[32m+[m[32m                        ...prev,[m
+[32m+[m[32m                        duocBenefit: 'Torta gratis en cumpleaños'[m
+[32m+[m[32m                    }));[m
+[32m+[m[32m                    await showDuocBenefitAlert();[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            if (name === 'fechaNacimiento' && value !== '') {[m
+[32m+[m[32m                // Verificar beneficio por edad[m
+[32m+[m[32m                const fecha = new Date(value);[m
+[32m+[m[32m                const hoy = new Date();[m
+[32m+[m[32m                const edad = hoy.getFullYear() - fecha.getFullYear();[m
+[32m+[m[41m                [m
+[32m+[m[32m                if (edad >= 50 && !benefits.ageDiscount) {[m
+[32m+[m[32m                    setBenefits(prev => ({[m
+[32m+[m[32m                        ...prev,[m
+[32m+[m[32m                        ageDiscount: '50% de descuento'[m
+[32m+[m[32m                    }));[m
+[32m+[m[32m                    await showAgeDiscountAlert();[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            if (name === 'codigoDescuento' && value.trim() !== '') {[m
+[32m+[m[32m       

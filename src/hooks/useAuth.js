@@ -169,7 +169,7 @@ export const useAuth = () => {
             }
 
             // Simular registro exitoso
-            await showRegisterSuccessAlert();
+            await showRegisterSuccessAlert(validation.benefits);
             
             // Simular usuario registrado
             const newUser = {
@@ -207,9 +207,10 @@ export const useAuth = () => {
      * @param {string} fieldName - Nombre del campo
      * @param {string} value - Valor del campo
      * @param {string} formType - Tipo de formulario ('login' o 'register')
+     * @param {Object} formData - Datos completos del formulario (opcional, necesario para confirmPassword)
      * @returns {Object} { isValid: boolean, message: string }
      */
-    const validateField = useCallback((fieldName, value, formType = 'login') => {
+    const validateField = useCallback((fieldName, value, formType = 'login', formData = null) => {
         switch (fieldName) {
             case 'email':
                 return validateEmailField(value);
@@ -223,7 +224,9 @@ export const useAuth = () => {
             case 'fechaNacimiento':
                 return validateBirthDateField(value);
             case 'confirmPassword':
-                return validatePasswordConfirmation(value, value);
+                // Si tenemos los datos del formulario, usar la contraseña actual
+                const password = formData && formData.password ? formData.password : '';
+                return validatePasswordConfirmation(password, value);
             default:
                 return { isValid: true, message: '' };
         }

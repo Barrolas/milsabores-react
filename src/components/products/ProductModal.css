@@ -742,9 +742,40 @@
     pointer-events: none;
 }
 
+/* Estilos para todos los botones del modal */
+.product-modal .btn {
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
 /* Estilos para accesibilidad */
 .product-modal .btn:focus {
+    background-color: #d63384;
+    border-color: #d63384;
+    color: white;
     box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);
+}
+
+.product-modal .btn-outline-primary:focus {
+    background-color: #e83e8c;
+    border-color: #e83e8c;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);
+}
+
+.product-modal .btn-outline-secondary:focus {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+}
+
+.product-modal .btn-outline-danger:focus {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
 }
 
 /* Estilos para el estado de error */

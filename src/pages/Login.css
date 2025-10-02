@@ -1,15 +1,16 @@
 /* Estilos para la página Login */
 
 .login-page {
-    background: linear-gradient(135deg, #e83e8c 0%, #d63384 100%);
+    background-color: #fdf2f8;
     min-height: 100vh;
-    padding: 2rem 0;
+    padding: 1rem 0 0 0;
+    margin-bottom: 0;
 }
 
 .login-card {
     border: none;
     border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 40px rgba(232, 62, 140, 0.15);
     overflow: hidden;
     background: white;
 }
@@ -82,7 +83,7 @@
 
 .form-control::placeholder {
     color: #6c757d;
-    font-style: italic;
+    font-style: normal;
 }
 
 /* Estilos para el input de contraseña */
@@ -364,8 +365,30 @@
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
+/* Estilos para mensajes de validación */
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #dc3545;
+    font-weight: 500;
+}
+
+.valid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #28a745;
+    font-weight: 500;
+}
+
 /* Estilos para el estado de focus en el botón */
 .login-btn:focus {
+    background-color: #d63384;
+    border-color: #d63384;
+    color: white;
     box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);
 }
 
