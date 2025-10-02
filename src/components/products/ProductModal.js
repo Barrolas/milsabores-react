@@ -46,6 +46,7 @@ function ProductModal({ show, onHide, productId }) {
         }
     };
 
+
     const renderStars = () => {
         return (
             <div className="product-rating">
@@ -114,67 +115,79 @@ function ProductModal({ show, onHide, productId }) {
 
             <Modal.Body className="modal-body">
                 <Row>
-                    {/* Imagen del producto */}
+                    {/* Imagen del producto con descripción */}
                     <Col md={6}>
-                        <div className="product-image-container">
-                            <img
-                                src={product.imagen}
-                                alt={product.nombre}
-                                className="product-image"
-                            />
-                            {isInCart && (
-                                <div className="cart-badge">
-                                    <span className="badge bg-primary">
-                                        {quantityInCart} en carrito
-                                    </span>
-                                </div>
-                            )}
-                        </div>
-                    </Col>
-
-                    {/* Información del producto */}
-                    <Col md={6}>
-                        <div className="product-info">
-                            {/* Rating */}
-                            <div className="product-rating-section mb-3">
-                                {renderStars()}
+                        <div className="product-image-section">
+                            <div className="product-image-container">
+                                <img
+                                    src={product.imagen}
+                                    alt={product.nombre}
+                                    className="product-image"
+                                />
+                                {isInCart && (
+                                    <div className="cart-badge">
+                                        <span className="badge bg-primary">
+                                            {quantityInCart} en carrito
+                                        </span>
+                                    </div>
+                                )}
                             </div>
-
-                            {/* Precio */}
-                            <div className="product-price-section mb-3">
-                                <span className="product-price">
-                                    {formatPrice(product.precio)}
-                                </span>
-                            </div>
-
-                            {/* Descripción */}
-                            <div className="product-description-section mb-3">
+                            
+                            {/* Descripción como pie de foto */}
+                            <div className="product-description-section">
                                 <h6>Descripción</h6>
                                 <p className="product-description">
                                     {product.descripcionDetallada || product.descripcion}
                                 </p>
                             </div>
+                            
+                        </div>
+                    </Col>
 
-                            {/* Información adicional */}
+                    {/* Información del producto optimizada */}
+                    <Col md={6}>
+                        <div className="product-info">
+                            {/* Título, Rating y Precio */}
+                            <div className="product-header-section mb-4">
+                                <h4 className="product-modal-title mb-3">
+                                    {product.nombre}
+                                </h4>
+                                <div className="product-rating-section mb-2">
+                                    {renderStars()}
+                                </div>
+                                <div className="product-price-section">
+                                    <span className="product-price">
+                                        {formatPrice(product.precio)}
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Información nutricional compacta */}
                             <div className="product-details-section mb-3">
-                                <Row>
-                                    <Col sm={6}>
-                                        <div className="detail-item">
-                                            <strong>Porciones:</strong>
-                                            <span>{product.porciones}</span>
+                                <div className="details-grid">
+                                    <div className="detail-card">
+                                        <div className="detail-icon">
+                                            <i className="fas fa-users"></i>
                                         </div>
-                                    </Col>
-                                    <Col sm={6}>
-                                        <div className="detail-item">
-                                            <strong>Calorías:</strong>
-                                            <span>{product.calorias}</span>
+                                        <div className="detail-content">
+                                            <span className="detail-label">Porciones</span>
+                                            <span className="detail-value">{product.porciones}</span>
                                         </div>
-                                    </Col>
-                                </Row>
+                                    </div>
+                                    <div className="detail-card">
+                                        <div className="detail-icon">
+                                            <i className="fas fa-fire"></i>
+                                        </div>
+                                        <div className="detail-content">
+                                            <span className="detail-label">Calorías</span>
+                                            <span className="detail-value">{product.calorias}</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* Ingredientes */}
-                            <div className="product-ingredients-section mb-3">
+                            <div className="product-ingredients-section mb-4">
                                 <h6>Ingredientes</h6>
                                 <p className="product-ingredients">
                                     {product.ingredientes}
