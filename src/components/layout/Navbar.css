@@ -1,0 +1,216 @@
+/* Estilos para el Navbar */
+
+.navbar {
+  background-color: white !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.navbar-brand {
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand img {
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover img {
+  filter: brightness(1.1);
+}
+
+/* Estilos para los enlaces de navegación */
+.nav-link {
+  color: #333 !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #e83e8c !important;
+  transform: translateY(-1px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background-color: #e83e8c;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Estilos para el botón de carrito */
+.cart-button {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cart-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(232, 62, 140, 0.3);
+}
+
+.cart-button .badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Estilos para la barra de búsqueda */
+.search-input {
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #e83e8c !important;
+  box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.25) !important;
+}
+
+.search-input::placeholder {
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Estilos para el ícono de búsqueda */
+.search-icon {
+  transition: color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .navbar-brand {
+    margin-right: 0;
+  }
+  
+  .navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar-brand img {
+    width: 80px !important;
+  }
+  
+  .mobile-brand {
+    font-size: 1rem;
+  }
+}
+
+/* Estilos para el sticky navbar */
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+/* Animaciones suaves */
+.navbar {
+  transition: all 0.3s ease;
+}
+
+/* Estilos para cuando el navbar está scrolleado */
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+/* Estilos para los íconos */
+.nav-icon {
+  transition: all 0.3s ease;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+  color: #e83e8c !important;
+}
+
+/* Estilos para el contenedor del navbar */
+.navbar-container {
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+}
+
+/* Estilos para el nombre de la marca en móvil */
+.text-pink {
+  color: #e83e8c !important;
+}
+
+/* Estilos para los botones de acción */
+.action-button {
+  transition: all 0.3s ease;
+  border-radius: 20px;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(232, 62, 140, 0.3);
+}
+
+/* Estilos para el badge del carrito */
+.cart-badge {
+  background-color: #e83e8c !important;
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50%;
+  min-width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-3px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Estilos para el estado activo */
+.nav-link.active {
+  color: #e83e8c !important;
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}

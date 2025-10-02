@@ -1,0 +1,218 @@
+/* Estilos para el botón hamburguesa del sidebar */
+.sidebar-toggle {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+}
+
+.sidebar-toggle:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* Líneas del menú hamburguesa */
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #e83e8c;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+/* Animación del botón hamburguesa al hacer hover */
+.sidebar-toggle:hover .hamburger-line {
+  background-color: #d63384;
+  transform: scale(1.1);
+}
+
+/* Estilos para el offcanvas sidebar */
+.offcanvas {
+  width: 300px !important;
+  max-width: 80vw;
+}
+
+.offcanvas-header {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border-bottom: 2px solid rgba(232, 62, 140, 0.1);
+}
+
+.offcanvas-body {
+  padding: 1.5rem;
+  background-color: #fff;
+}
+
+/* Estilos para los enlaces de navegación */
+.offcanvas-body .navbar-nav {
+  margin-bottom: 2rem;
+}
+
+.offcanvas-body .nav-link {
+  color: #333;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.offcanvas-body .nav-link:hover {
+  background-color: rgba(232, 62, 140, 0.1);
+  color: #e83e8c;
+  transform: translateX(5px);
+}
+
+/* Estilos para la barra de búsqueda */
+.search-input {
+  border: 2px solid rgba(232, 62, 140, 0.3);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #e83e8c;
+  box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.25);
+}
+
+/* Estilos para la sección de usuario */
+.offcanvas-body .bg-light {
+  background-color: rgba(232, 62, 140, 0.05) !important;
+  border: 1px solid rgba(232, 62, 140, 0.1);
+  border-radius: 10px;
+}
+
+/* Estilos para los botones */
+.offcanvas-body .btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.offcanvas-body .btn-primary {
+  background-color: #e83e8c;
+  border-color: #e83e8c;
+}
+
+.offcanvas-body .btn-primary:hover {
+  background-color: #d63384;
+  border-color: #d63384;
+  transform: translateY(-2px);
+}
+
+.offcanvas-body .btn-outline-primary {
+  color: #e83e8c;
+  border-color: #e83e8c;
+}
+
+.offcanvas-body .btn-outline-primary:hover {
+  background-color: #e83e8c;
+  border-color: #e83e8c;
+  transform: translateY(-2px);
+}
+
+/* Estilos para el carrito */
+.offcanvas-body .position-relative {
+  transition: all 0.3s ease;
+}
+
+.offcanvas-body .position-relative:hover {
+  background-color: rgba(232, 62, 140, 0.1) !important;
+  transform: scale(1.02);
+}
+
+/* Badge del contador del carrito */
+.cart-counter {
+  font-size: 0.7rem;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos responsivos */
+@media (max-width: 576px) {
+  .offcanvas {
+    width: 100vw !important;
+    max-width: 100vw;
+  }
+  
+  .offcanvas-header {
+    padding: 1rem;
+  }
+  
+  .offcanvas-body {
+    padding: 1rem;
+  }
+  
+  .offcanvas-body .nav-link {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Animaciones de entrada */
+.offcanvas.show .offcanvas-header {
+  animation: slideInFromTop 0.3s ease-out;
+}
+
+.offcanvas.show .offcanvas-body {
+  animation: slideInFromBottom 0.3s ease-out 0.1s both;
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mejoras de accesibilidad */
+.offcanvas:focus {
+  outline: 2px solid #e83e8c;
+  outline-offset: 2px;
+}
+
+/* Scroll personalizado para el contenido del sidebar */
+.offcanvas-body {
+  scrollbar-width: thin;
+  scrollbar-color: #e83e8c #f1f1f1;
+}
+
+.offcanvas-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.offcanvas-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.offcanvas-body::-webkit-scrollbar-thumb {
+  background: #e83e8c;
+  border-radius: 3px;
+}
+
+.offcanvas-body::-webkit-scrollbar-thumb:hover {
+  background: #d63384;
+}

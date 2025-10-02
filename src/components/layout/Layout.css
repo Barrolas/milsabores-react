@@ -1,0 +1,90 @@
+/* Estilos para el Layout principal */
+
+.layout-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+.layout-main {
+  flex: 1;
+  padding-top: 0; /* El navbar es sticky, no necesita padding */
+}
+
+/* Asegurar que el contenido principal no se superponga con el navbar */
+.layout-main > *:first-child {
+  margin-top: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .layout-main {
+    padding-top: 0;
+  }
+}
+
+/* Smooth scrolling para toda la aplicación */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos globales para el body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Estilos para enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #e83e8c;
+}
+
+/* Estilos para botones */
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Estilos para inputs */
+input, textarea, select {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #e83e8c;
+  box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.25);
+}
+
+/* Estilos para scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e83e8c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d63384;
+}

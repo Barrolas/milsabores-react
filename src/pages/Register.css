@@ -1,0 +1,469 @@
+/* Estilos para la página Register */
+
+.register-page {
+    background: linear-gradient(135deg, #e83e8c 0%, #d63384 100%);
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.register-card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background: white;
+}
+
+.register-header {
+    background: linear-gradient(135deg, #e83e8c 0%, #d63384 100%);
+    color: white;
+    border: none;
+    padding: 2rem 2rem 1.5rem;
+    text-align: center;
+}
+
+.register-header-content {
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.register-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.register-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.register-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.register-body {
+    padding: 2rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.form-label svg {
+    color: #e83e8c;
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.form-control:focus {
+    border-color: #e83e8c;
+    box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.25);
+    background-color: white;
+}
+
+.form-control.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.form-control::placeholder {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Estilos para los inputs de contraseña */
+.password-input-container {
+    position: relative;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #6c757d;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.password-toggle-btn:hover {
+    background-color: #e9ecef;
+    color: #e83e8c;
+}
+
+.password-toggle-btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.25);
+}
+
+/* Estilos para el botón de registro */
+.register-btn {
+    background-color: #e83e8c;
+    border-color: #e83e8c;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(232, 62, 140, 0.3);
+}
+
+.register-btn:hover:not(:disabled) {
+    background-color: #d63384;
+    border-color: #d63384;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 62, 140, 0.4);
+}
+
+.register-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Estilos para el footer del registro */
+.register-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.register-links {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.register-links:last-child {
+    margin-bottom: 0;
+}
+
+.register-link {
+    color: #e83e8c;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.register-link:hover {
+    color: #d63384;
+    text-decoration: underline;
+    transform: translateY(-1px);
+}
+
+/* Estilos para el spinner */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Estilos para las alertas */
+.error-alert {
+    border: none;
+    border-radius: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos para el texto de ayuda */
+.form-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+.form-text strong {
+    color: #e83e8c;
+    font-weight: 600;
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.register-body {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .register-page {
+        padding: 1.5rem 0;
+    }
+    
+    .register-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+    
+    .register-body {
+        padding: 1.5rem;
+    }
+    
+    .register-title {
+        font-size: 1.8rem;
+    }
+    
+    .register-icon {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .register-page {
+        padding: 1rem 0;
+    }
+    
+    .register-header {
+        padding: 1.25rem 1.25rem 0.75rem;
+    }
+    
+    .register-body {
+        padding: 1.25rem;
+    }
+    
+    .register-title {
+        font-size: 1.6rem;
+    }
+    
+    .register-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .register-icon {
+        font-size: 2rem;
+    }
+    
+    .form-control {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+    }
+    
+    .register-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .register-page {
+        padding: 0.5rem 0;
+    }
+    
+    .register-header {
+        padding: 1rem 1rem 0.5rem;
+    }
+    
+    .register-body {
+        padding: 1rem;
+    }
+    
+    .register-title {
+        font-size: 1.4rem;
+    }
+    
+    .register-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .register-icon {
+        font-size: 1.8rem;
+    }
+    
+    .form-control {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .register-btn {
+        padding: 8px 16px;
+        font-size: 0.95rem;
+    }
+    
+    .register-footer {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+    
+    .form-text {
+        font-size: 0.8rem;
+    }
+}
+
+/* Efectos de hover mejorados */
+.form-control:hover:not(:focus) {
+    border-color: #dee2e6;
+    background-color: white;
+}
+
+.register-link:hover {
+    transform: translateY(-2px);
+}
+
+/* Estilos para el estado de loading */
+.register-page.loading {
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* Estilos para accesibilidad */
+.form-control:focus,
+.register-btn:focus,
+.password-toggle-btn:focus,
+.register-link:focus {
+    outline: none;
+}
+
+.form-control:focus {
+    outline: 2px solid #e83e8c;
+    outline-offset: 2px;
+}
+
+/* Estilos para el estado de error */
+.register-card.error {
+    border: 2px solid #dc3545;
+}
+
+.register-card.error .register-header {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+}
+
+/* Estilos para el estado de éxito */
+.register-card.success {
+    border: 2px solid #28a745;
+}
+
+.register-card.success .register-header {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+}
+
+/* Estilos para el estado de validación */
+.form-control.is-valid {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Estilos para el estado de focus en el botón */
+.register-btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);
+}
+
+/* Estilos para el estado de disabled */
+.form-control:disabled {
+    background-color: #e9ecef;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Estilos para el estado de autofill */
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #f8f9fa inset !important;
+    -webkit-text-fill-color: #333 !important;
+}
+
+/* Estilos para el campo de fecha */
+.form-control[type="date"] {
+    position: relative;
+}
+
+.form-control[type="date"]::-webkit-calendar-picker-indicator {
+    color: #e83e8c;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.form-control[type="date"]::-webkit-calendar-picker-indicator:hover {
+    background-color: #e9ecef;
+}
+
+/* Estilos para el campo de código de descuento */
+.form-control[name="codigoDescuento"] {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos para los beneficios mostrados */
+.benefits-display {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border: 1px solid #2196f3;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.benefits-display h6 {
+    color: #1976d2;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.benefits-display ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.benefits-display li {
+    color: #1976d2;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Estilos para el estado de validación en tiempo real */
+.form-control.validating {
+    border-color: #ffc107;
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+/* Estilos para el estado de éxito en tiempo real */
+.form-control.success {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Estilos para el estado de error en tiempo real */
+.form-control.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}

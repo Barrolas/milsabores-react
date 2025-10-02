@@ -1,5 +1,10 @@
+// Punto de entrada de la aplicación
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// Bootstrap JS se carga automáticamente con React Bootstrap
+import '@fortawesome/fontawesome-free/css/all.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

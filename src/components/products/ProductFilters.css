@@ -1,0 +1,433 @@
+/* Estilos para ProductFilters */
+
+.product-filters {
+    position: sticky;
+    top: 100px;
+    z-index: 100;
+}
+
+.filters-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.filters-header {
+    background: linear-gradient(135deg, #e83e8c 0%, #d63384 100%);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+}
+
+.filters-header h5 {
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.clear-all-btn {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    background: transparent;
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.clear-all-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.filters-body {
+    padding: 1.5rem;
+    background: white;
+}
+
+/* Estilos para Accordion */
+.accordion-item {
+    border: none;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+    background: #f8f9fa;
+    border: none;
+    padding: 0;
+}
+
+.accordion-button {
+    background: #f8f9fa;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    color: #333;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background: #e83e8c;
+    color: white;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-body {
+    padding: 1.5rem;
+    background: white;
+}
+
+/* Estilos para inputs */
+.search-input,
+.category-select,
+.sort-select {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus,
+.category-select:focus,
+.sort-select:focus {
+    border-color: #e83e8c;
+    box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.25);
+}
+
+.search-input::placeholder {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Estilos para filtros de precio */
+.price-range-container {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
+
+.price-inputs {
+    display: flex;
+    gap: 1rem;
+}
+
+.price-inputs .form-group {
+    flex: 1;
+}
+
+.price-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.price-input {
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.price-input:focus {
+    border-color: #e83e8c;
+    box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.25);
+}
+
+.price-display {
+    text-align: center;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+.price-range-text {
+    font-weight: 600;
+    color: #e83e8c;
+    font-size: 0.9rem;
+}
+
+.price-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.apply-price-btn,
+.clear-price-btn {
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.apply-price-btn {
+    background-color: #e83e8c;
+    border-color: #e83e8c;
+}
+
+.apply-price-btn:hover {
+    background-color: #d63384;
+    border-color: #d63384;
+    transform: translateY(-1px);
+}
+
+.clear-price-btn {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.clear-price-btn:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+/* Estilos para resumen de filtros activos */
+.active-filters-summary {
+    background: #e3f2fd;
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid #2196f3;
+}
+
+.summary-title {
+    color: #1976d2;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.active-filters-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.active-filters-list .badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+/* Estilos para estadísticas */
+.filter-stats {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
+
+.stats-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.stats-item:last-child {
+    margin-bottom: 0;
+}
+
+.stats-label {
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.stats-value {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .product-filters {
+        position: static;
+        margin-bottom: 2rem;
+    }
+    
+    .filters-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .filters-body {
+        padding: 1rem;
+    }
+    
+    .accordion-body {
+        padding: 1rem;
+    }
+    
+    .price-inputs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .filters-header h5 {
+        font-size: 1rem;
+    }
+    
+    .clear-all-btn {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+    }
+    
+    .filters-body {
+        padding: 0.75rem;
+    }
+    
+    .accordion-button {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .accordion-body {
+        padding: 0.75rem;
+    }
+    
+    .price-range-container {
+        padding: 0.75rem;
+    }
+    
+    .active-filters-summary {
+        padding: 0.75rem;
+    }
+    
+    .filter-stats {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .filters-header {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .filters-header h5 {
+        font-size: 0.9rem;
+    }
+    
+    .clear-all-btn {
+        font-size: 0.7rem;
+        padding: 0.15rem 0.4rem;
+    }
+    
+    .filters-body {
+        padding: 0.5rem;
+    }
+    
+    .accordion-button {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .accordion-body {
+        padding: 0.5rem;
+    }
+    
+    .price-range-container {
+        padding: 0.5rem;
+    }
+    
+    .active-filters-summary {
+        padding: 0.5rem;
+    }
+    
+    .filter-stats {
+        padding: 0.5rem;
+    }
+    
+    .stats-item {
+        font-size: 0.8rem;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filters-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Efectos de hover */
+.accordion-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Estilos para el estado de loading */
+.filters-card.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Estilos para accesibilidad */
+.accordion-button:focus {
+    outline: 2px solid #e83e8c;
+    outline-offset: 2px;
+}
+
+.search-input:focus,
+.category-select:focus,
+.sort-select:focus,
+.price-input:focus {
+    outline: none;
+}
+
+/* Estilos para el estado de error */
+.filters-card.error {
+    border: 2px solid #dc3545;
+}
+
+.filters-card.error .filters-header {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+}
+
+/* Estilos para el estado de éxito */
+.filters-card.success {
+    border: 2px solid #28a745;
+}
+
+.filters-card.success .filters-header {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+}

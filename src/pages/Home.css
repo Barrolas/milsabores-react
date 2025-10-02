@@ -1,0 +1,510 @@
+/* Estilos para la página Home */
+
+/* Sección de Bienvenida */
+.welcome-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.welcome-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.welcome-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.brand-name {
+    color: #e83e8c;
+    background: linear-gradient(135deg, #e83e8c 0%, #d63384 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.welcome-description {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.welcome-btn {
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-btn.btn-primary {
+    background-color: #e83e8c;
+    border-color: #e83e8c;
+}
+
+.welcome-btn.btn-primary:hover {
+    background-color: #d63384;
+    border-color: #d63384;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(232, 62, 140, 0.4);
+}
+
+.welcome-btn.btn-outline-primary {
+    color: #e83e8c;
+    border-color: #e83e8c;
+}
+
+.welcome-btn.btn-outline-primary:hover {
+    background-color: #e83e8c;
+    border-color: #e83e8c;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(232, 62, 140, 0.4);
+}
+
+/* Sección de Productos */
+.products-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #e83e8c 0%, #d63384 100%);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Sección Sobre Nosotros */
+.about-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.about-content {
+    animation: fadeInLeft 0.8s ease-out;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.about-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #e83e8c 0%, #d63384 100%);
+    border-radius: 2px;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: #e83e8c;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.feature-content h5 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.feature-content p {
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.about-image {
+    animation: fadeInRight 0.8s ease-out;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Sección de Contacto */
+.contact-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.contact-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.contact-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #e83e8c 0%, #d63384 100%);
+    border-radius: 2px;
+}
+
+.contact-description {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    border-radius: 25px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: #e83e8c;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+    color: #e83e8c;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+    color: white;
+}
+
+.contact-btn {
+    background-color: #e83e8c;
+    border-color: #e83e8c;
+    border-radius: 30px;
+    padding: 15px 40px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(232, 62, 140, 0.3);
+}
+
+.contact-btn:hover {
+    background-color: #d63384;
+    border-color: #d63384;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(232, 62, 140, 0.4);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .welcome-title {
+        font-size: 2.5rem;
+    }
+    
+    .welcome-description {
+        font-size: 1.1rem;
+    }
+    
+    .section-title,
+    .about-title,
+    .contact-title {
+        font-size: 2rem;
+    }
+    
+    .about-features {
+        margin-top: 2rem;
+    }
+    
+    .contact-info {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .welcome-section,
+    .products-section,
+    .about-section,
+    .contact-section {
+        padding: 3rem 0;
+    }
+    
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .welcome-description {
+        font-size: 1rem;
+    }
+    
+    .welcome-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .welcome-btn {
+        width: 200px;
+    }
+    
+    .section-title,
+    .about-title,
+    .contact-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle,
+    .about-description,
+    .contact-description {
+        font-size: 1rem;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .feature-icon {
+        font-size: 1.5rem;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .contact-item {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .welcome-section,
+    .products-section,
+    .about-section,
+    .contact-section {
+        padding: 2rem 0;
+    }
+    
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-description {
+        font-size: 0.95rem;
+    }
+    
+    .section-title,
+    .about-title,
+    .contact-title {
+        font-size: 1.6rem;
+    }
+    
+    .section-subtitle,
+    .about-description,
+    .contact-description {
+        font-size: 0.95rem;
+    }
+    
+    .welcome-btn {
+        width: 180px;
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+    
+    .contact-btn {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+    
+    .feature-item {
+        padding: 0.75rem;
+    }
+    
+    .contact-item {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Efectos de hover mejorados */
+.welcome-btn:hover,
+.contact-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.contact-item:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Estilos para el estado de loading */
+.home-page.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Estilos para accesibilidad */
+.welcome-btn:focus,
+.contact-btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.5);
+}
+
+/* Estilos para el estado de error */
+.home-page.error {
+    border: 2px solid #dc3545;
+    background-color: #f8d7da;
+}
+
+/* Estilos para el estado de éxito */
+.home-page.success {
+    border: 2px solid #28a745;
+    background-color: #d4edda;
+}
