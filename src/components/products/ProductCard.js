@@ -44,7 +44,7 @@ function ProductCard({ product, onShowDetails }) {
     return (
         <div className="col-lg-3 col-md-6 mb-4">
             <Card className="product-card h-100 shadow-sm">
-                <div className="product-image-container">
+                <div className="product-image-container" onClick={handleShowDetails} style={{ cursor: 'pointer' }}>
                     <Card.Img 
                         variant="top" 
                         src={product.imagen} 
@@ -61,7 +61,7 @@ function ProductCard({ product, onShowDetails }) {
                 </div>
                 
                 <Card.Body className="d-flex flex-column">
-                    <Card.Title className="product-title">
+                    <Card.Title className="product-title" onClick={handleShowDetails} style={{ cursor: 'pointer' }}>
                         {product.nombre}
                     </Card.Title>
                     
@@ -71,7 +71,7 @@ function ProductCard({ product, onShowDetails }) {
                     
                     {renderStars()}
                     
-                    <div className="product-price mb-3">
+                    <div className="product-price">
                         <span className="price-amount">
                             {formatPrice(product.precio)}
                         </span>
@@ -79,7 +79,7 @@ function ProductCard({ product, onShowDetails }) {
                     
                     <div className="product-actions mt-auto">
                         <button 
-                            className="btn btn-primary w-100 py-2 mb-2"
+                            className="btn btn-primary w-100 py-2"
                             onClick={handleAddToCart}
                             disabled={quantityInCart >= 99}
                         >
