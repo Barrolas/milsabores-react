@@ -67,10 +67,11 @@ function Home() {
                 contentBackgroundColor="#fdf2f8"
             >
                 <Row className="align-items-stretch">
-                    <Col lg={6} className="mb-4 mb-lg-0">
+                    <Col lg={6} className="mb-2 mb-lg-0">
                         <div className="about-content">
                             <div className="about-text-section">
-                                <p className="about-description">
+                                <h2 className="about-title mx-5 text-start my-3 text-pink">Pastelería Mil Sabores</h2>
+                                <p className="about-description mx-5">
                                     Con más de 10 años de experiencia en el mundo de la pastelería, 
                                     <strong> Mil Sabores</strong> se ha consolidado como una de las pastelerías más 
                                     reconocidas de la región. Nuestro compromiso es ofrecer productos 
