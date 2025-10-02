@@ -4,7 +4,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #f8f9fa;
+  background-color: #fdf2f8; /* Rosa muy claro basado en el color temático #e83e8c */
 }
 
 .layout-main {

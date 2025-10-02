@@ -2,8 +2,12 @@
 
 .product-filters {
     position: sticky;
-    top: 100px;
+    top: 150px; /* Espacio suficiente para navbar + título visible */
     z-index: 100;
+    margin-top: 2rem; /* Espacio superior para que se vea el título */
+    margin-bottom: 2rem; /* Espacio inferior */
+    max-height: calc(100vh - 200px); /* Altura máxima para evitar overflow */
+    overflow-y: auto; /* Scroll si es necesario */
 }
 
 .filters-card {
@@ -49,6 +53,27 @@
     background: white;
 }
 
+/* Estilos para la sección de búsqueda siempre visible */
+.search-section {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid #e9ecef;
+}
+
+.search-header {
+    margin-bottom: 1rem;
+}
+
+.search-title {
+    color: #e83e8c;
+    font-weight: 600;
+    margin: 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
 /* Estilos para Accordion */
 .accordion-item {
     border: none;
@@ -56,6 +81,11 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.accordion-item:last-child {
+    margin-bottom: 0;
 }
 
 .accordion-header {
@@ -77,6 +107,7 @@
 .accordion-button:not(.collapsed) {
     background: #e83e8c;
     color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .accordion-button:focus {
@@ -267,11 +298,32 @@
     font-weight: 600;
 }
 
+/* Estilos para scroll personalizado */
+.product-filters::-webkit-scrollbar {
+    width: 6px;
+}
+
+.product-filters::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.product-filters::-webkit-scrollbar-thumb {
+    background: #e83e8c;
+    border-radius: 3px;
+}
+
+.product-filters::-webkit-scrollbar-thumb:hover {
+    background: #d63384;
+}
+
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
     .product-filters {
         position: static;
         margin-bottom: 2rem;
+        max-height: none; /* Sin altura máxima en móvil */
+        overflow-y: visible; /* Sin scroll en móvil */
     }
     
     .filters-header {
@@ -280,6 +332,14 @@
     
     .filters-body {
         padding: 1rem;
+    }
+    
+    .search-section {
+        padding: 0.75rem;
+    }
+    
+    .search-title {
+        font-size: 0.9rem;
     }
     
     .accordion-body {
@@ -304,6 +364,14 @@
     
     .filters-body {
         padding: 0.75rem;
+    }
+    
+    .search-section {
+        padding: 0.5rem;
+    }
+    
+    .search-title {
+        font-size: 0.85rem;
     }
     
     .accordion-button {
@@ -344,6 +412,14 @@
     
     .filters-body {
         padding: 0.5rem;
+    }
+    
+    .search-section {
+        padding: 0.4rem;
+    }
+    
+    .search-title {
+        font-size: 0.8rem;
     }
     
     .accordion-button {

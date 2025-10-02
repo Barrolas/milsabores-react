@@ -1,0 +1,88 @@
+/* Estilos para el componente SectionWrapper */
+
+.section-wrapper {
+    /* Sin padding general, se maneja por separado */
+}
+
+.section-header-wrapper {
+    padding: 2rem 0 1rem 0;
+}
+
+.section-content-wrapper {
+    padding: 2rem 0;
+}
+
+.section-header {
+    margin-bottom: 0; /* El margin se maneja en el wrapper */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #343a40;
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #e83e8c;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .section-wrapper {
+        padding: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .section-wrapper {
+        padding: 2.5rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .section-wrapper {
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+}

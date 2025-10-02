@@ -83,25 +83,27 @@ function ProductFilters({
                 </Card.Header>
 
                 <Card.Body className="filters-body">
-                    <Accordion defaultActiveKey="search" alwaysOpen>
-                        {/* Búsqueda */}
-                        <Accordion.Item eventKey="search">
-                            <Accordion.Header>
+                    {/* Búsqueda - Siempre visible */}
+                    <div className="search-section mb-4">
+                        <div className="search-header">
+                            <h6 className="search-title">
                                 <FaSearch className="me-2" />
                                 Búsqueda
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                <Form.Group className="mb-3">
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Buscar productos..."
-                                        value={localSearchTerm}
-                                        onChange={handleSearchChange}
-                                        className="search-input"
-                                    />
-                                </Form.Group>
-                            </Accordion.Body>
-                        </Accordion.Item>
+                            </h6>
+                        </div>
+                        <Form.Group className="mb-3">
+                            <Form.Control
+                                type="text"
+                                placeholder="Buscar productos..."
+                                value={localSearchTerm}
+                                onChange={handleSearchChange}
+                                className="search-input"
+                            />
+                        </Form.Group>
+                    </div>
+
+                    {/* Filtros en acordeón */}
+                    <Accordion>
 
                         {/* Categorías */}
                         <Accordion.Item eventKey="categories">

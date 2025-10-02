@@ -6,6 +6,26 @@
   z-index: 1000;
 }
 
+/* Estilos para el botón de carrito */
+.cart-button {
+  transition: all 0.3s ease !important;
+}
+
+.cart-button:hover {
+  background-color: #e83e8c !important;
+  border-color: #e83e8c !important;
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+.cart-button:hover .fa-shopping-cart {
+  color: white !important;
+}
+
+.cart-button:hover .fw-medium {
+  color: white !important;
+}
+
 .navbar-brand {
   transition: transform 0.3s ease;
 }

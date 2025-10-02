@@ -6,6 +6,7 @@ import ProductCard from './ProductCard';
 import ProductFilters from './ProductFilters';
 import { useProducts } from '../../hooks/useProducts';
 import { useCart } from '../../contexts/CartContext';
+import { getAllCategories } from '../../data/productosDB';
 import './ProductGrid.css';
 
 function ProductGrid({ onShowProductDetails }) {
@@ -26,6 +27,13 @@ function ProductGrid({ onShowProductDetails }) {
     } = useProducts();
 
     const { totalItems } = useCart();
+    
+    // Obtener el nombre de la categoría seleccionada
+    const categories = getAllCategories();
+    const getCategoryName = (categoryKey) => {
+        if (categoryKey === 'todos') return 'Todos los Productos';
+        return categories[categoryKey]?.nombre || 'Productos';
+    };
 
     const handleShowProductDetails = (productId) => {
         if (onShowProductDetails) {
@@ -63,11 +71,9 @@ function ProductGrid({ onShowProductDetails }) {
                             <div className="d-flex justify-content-between align-items-center flex-wrap">
                                 <div>
                                     <h2 className="products-title mb-1">
-                                        {selectedCategory === 'todos' ? 'Todos los Productos' : 
-                                         filterStats.categoryCount > 0 ? `${filterStats.categoryCount} productos` : 
-                                         'Productos'}
+                                        {getCategoryName(selectedCategory)}
                                     </h2>
-                                    <p className="products-subtitle text-muted mb-0">
+                                    <p className="products-subtitle text-muted mb-0 text-start">
                                         {filterStats.hasActiveFilters 
                                             ? `${filterStats.filteredCount} de ${filterStats.totalProducts} productos`
                                             : `${filterStats.totalProducts} productos disponibles`

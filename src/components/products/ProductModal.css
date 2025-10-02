@@ -170,6 +170,17 @@
     overflow: visible !important;
     max-height: none !important;
     height: auto !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.product-description-section p {
+    display: block !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    max-height: none !important;
+    height: auto !important;
 }
 
 .product-ingredients-section {
@@ -191,6 +202,9 @@
     text-overflow: unset !important;
     max-height: none !important;
     height: auto !important;
+    display: block !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
 }
 
 /* Estilos para la nueva sección de detalles compacta */

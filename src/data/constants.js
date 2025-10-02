@@ -30,7 +30,7 @@ export const VALIDATION_RULES = {
     NAME_MIN_LENGTH: 2,
     NAME_REGEX: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/,
     MIN_AGE: 18,
-    MAX_AGE: 100
+    MAX_AGE: 130
 };
 
 // Configuración de beneficios especiales

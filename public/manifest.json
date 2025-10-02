@@ -1,25 +1,28 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Mil Sabores",
+  "name": "Mil Sabores - Pastelería Artesanal",
+  "description": "Pastelería artesanal con los mejores ingredientes. Tortas, postres y productos especiales elaborados con amor.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "assets/images/logo-milsabores.png",
+      "sizes": "102x102",
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
+      "src": "assets/images/logo-milsabores.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "assets/images/logo-milsabores.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#e83e8c",
+  "background_color": "#ffffff",
+  "categories": ["food", "shopping", "business"],
+  "lang": "es"
 }

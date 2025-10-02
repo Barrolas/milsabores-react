@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { FaUser, FaShoppingCart, FaSignInAlt, FaUserPlus, FaSearch } from 'react-icons/fa';
+import { FaUser, FaShoppingCart, FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 import { useCart } from '../../contexts/CartContext';
 import SidebarComponent from '../Sidebar';
 import './Navbar.css';
@@ -22,10 +22,6 @@ function NavbarComponent({ onShowCartModal, sidebarOpen, onToggleSidebar, onClos
         }
     };
 
-    // Función para manejar búsqueda (placeholder)
-    const handleSearch = (searchTerm) => {
-        console.log('Búsqueda:', searchTerm);
-    };
 
     return (
         <Navbar expand="lg" bg="white" className="shadow-sm sticky-top">
@@ -50,8 +46,8 @@ function NavbarComponent({ onShowCartModal, sidebarOpen, onToggleSidebar, onClos
                     </div>
 
                     {/* Dropdown de categorias */}
-                    <div className="col-auto px-3 d-none d-lg-block">
-                        <Nav className="d-flex flex-row">
+                    <div className="col d-none d-lg-block">
+                        <Nav className="d-flex flex-row justify-content-start">
                             <Nav.Item className="me-4">
                                 <Nav.Link href="/" className="fw-medium px-2">Inicio</Nav.Link>
                             </Nav.Item>
@@ -64,36 +60,12 @@ function NavbarComponent({ onShowCartModal, sidebarOpen, onToggleSidebar, onClos
                         </Nav>
                     </div>
 
-                    {/* Search Bar */}
-                    <div className="col px-4 d-none d-lg-block">
-                        <div className="position-relative">
-                            <FaSearch 
-                                className="position-absolute top-50 start-0 translate-middle-y ms-3"
-                                style={{ color: brandPink }}
-                            />
-                            <input
-                                type="text"
-                                className="form-control ps-5 py-2 border-2"
-                                placeholder="Buscar productos..."
-                                style={{ 
-                                    borderRadius: '25px',
-                                    borderColor: '#e9ecef',
-                                    fontSize: '0.9rem'
-                                }}
-                                onKeyPress={(e) => {
-                                    if (e.key === 'Enter') {
-                                        handleSearch(e.target.value);
-                                    }
-                                }}
-                            />
-                        </div>
-                    </div>
 
                     {/* User Actions */}
-                    <div className="col-auto d-flex align-items-center">
+                    <div className="col-auto d-flex align-items-center justify-content-end">
                         {/* Desktop User Actions */}
                         <div className="d-none d-lg-flex align-items-center">
-                            <Nav className="d-flex align-items-center">
+                            <Nav className="d-flex align-items-center justify-content-end">
                                 <Nav.Item className="me-3">
                                     <Nav.Link href="/login" className="d-flex align-items-center text-dark">
                                         <FaSignInAlt className="me-2" style={{ color: brandPink }} />
@@ -108,7 +80,7 @@ function NavbarComponent({ onShowCartModal, sidebarOpen, onToggleSidebar, onClos
                                 </Nav.Item>
                                 <Nav.Item>
                                     <button 
-                                        className="btn btn-outline-primary d-flex align-items-center"
+                                        className="btn btn-outline-primary d-flex align-items-center cart-button"
                                         onClick={showCartModal}
                                         style={{ 
                                             borderRadius: '20px',
@@ -134,7 +106,7 @@ function NavbarComponent({ onShowCartModal, sidebarOpen, onToggleSidebar, onClos
                         {/* Mobile Cart Button */}
                         <div className="d-lg-none">
                             <button 
-                                className="btn btn-outline-primary d-flex align-items-center me-3"
+                                className="btn btn-outline-primary d-flex align-items-center me-3 cart-button"
                                 onClick={showCartModal}
                                 style={{ 
                                     borderRadius: '20px',
@@ -159,7 +131,6 @@ function NavbarComponent({ onShowCartModal, sidebarOpen, onToggleSidebar, onClos
                             cartCount={totalItems}
                             cartPrice={totalPrice}
                             onCartClick={showCartModal}
-                            onSearchChange={handleSearch}
                             show={sidebarOpen}
                             onToggle={onToggleSidebar}
                             onHide={onCloseSidebar}

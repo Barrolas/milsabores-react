@@ -3,7 +3,7 @@ import { Offcanvas } from 'react-bootstrap';
 import { FaSearch, FaUser, FaSignInAlt, FaUserPlus, FaShoppingCart } from 'react-icons/fa';
 import './Sidebar.css';
 
-function SidebarComponent({ cartCount, cartPrice, onCartClick, onSearchChange, show, onHide, onToggle }) {
+function SidebarComponent({ cartCount, cartPrice, onCartClick, show, onHide, onToggle }) {
   const handleClose = () => {
     if (onHide) onHide();
   };
@@ -56,19 +56,6 @@ function SidebarComponent({ cartCount, cartPrice, onCartClick, onSearchChange, s
             </li>
           </ul>
 
-          {/* Barra de búsqueda */}
-          <div className="mt-4">
-            <div className="position-relative">
-              <FaSearch className="position-absolute top-50 start-0 translate-middle-y ms-3 text-pink" />
-              <input 
-                type="text" 
-                className="form-control ps-5 border-pink bg-white"
-                placeholder="Buscar..." 
-                style={{ borderRadius: '25px' }}
-                onChange={(e) => onSearchChange && onSearchChange(e.target.value)}
-              />
-            </div>
-          </div>
 
           {/* Usuario y carrito */}
           <div className="mt-4 d-flex flex-column gap-3">
