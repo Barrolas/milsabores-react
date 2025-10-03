@@ -33,9 +33,14 @@ function NavbarComponent({ onShowCartModal, sidebarOpen, onToggleSidebar, onClos
                             <img 
                                 src="/assets/images/logo-milsabores.png" 
                                 alt="Mil Sabores Logo" 
-                                className="me-2"
+                                className="me-3"
                                 style={{ width: '102px' }}
                             />
+                            {/* Nombre de la pastelería - Solo visible en desktop */}
+                            <div className="d-none d-lg-block brand-text">
+                                <div className="brand-name">Mil Sabores</div>
+                                <div className="brand-subtitle">Pastelería</div>
+                            </div>
                         </Navbar.Brand>
                     </div>
 

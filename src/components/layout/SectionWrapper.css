@@ -12,6 +12,16 @@
     padding: 2rem 0;
 }
 
+/* Clase específica para quitar margin-top de la sección de productos */
+.products-section {
+    margin-top: 0 !important;
+}
+
+.products-section .section-header-wrapper {
+    padding: 0 0 1rem 0;
+    border-radius: 0 !important;
+}
+
 .section-header {
     margin-bottom: 0; /* El margin se maneja en el wrapper */
 }

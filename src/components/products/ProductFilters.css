@@ -2,9 +2,8 @@
 
 .product-filters {
     position: sticky;
-    top: 150px; /* Espacio suficiente para navbar + título visible */
+    top: 160px; /* Espacio suficiente para navbar + título visible */
     z-index: 100;
-    margin-top: 0.2rem; /* Espacio superior para que se vea el título */
     margin-bottom: 2rem; /* Espacio inferior */
     max-height: calc(100vh - 200px); /* Altura máxima para evitar overflow */
     overflow-y: auto; /* Scroll si es necesario */

@@ -6,6 +6,27 @@
   z-index: 1000;
 }
 
+/* Estilos para el texto de la marca */
+.brand-text {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e83e8c;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.brand-subtitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  line-height: 1;
+  margin-top: 2px;
+}
+
 /* Estilos para el botón de carrito */
 .cart-button {
   transition: all 0.3s ease !important;
@@ -132,6 +153,14 @@
   .navbar-toggler:focus {
     box-shadow: none;
   }
+  
+  .brand-name {
+    font-size: 1.3rem;
+  }
+  
+  .brand-subtitle {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -145,6 +174,14 @@
   
   .mobile-brand {
     font-size: 1rem;
+  }
+  
+  .brand-name {
+    font-size: 1.1rem;
+  }
+  
+  .brand-subtitle {
+    font-size: 0.75rem;
   }
 }
 

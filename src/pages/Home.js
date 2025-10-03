@@ -40,7 +40,7 @@ function Home() {
     return (
         <Layout onShowCartModal={handleShowCartModal}>
             {/* Carrusel Hero */}
-            <CarouselComponent />
+            <CarouselComponent onShowProductDetails={handleShowProductDetails} />
 
 
             {/* Sección de Productos */}
@@ -52,6 +52,7 @@ function Home() {
                 fluid={true}
                 headerBackgroundColor="white"
                 contentBackgroundColor="white"
+                contentPadding="0 0 0 0"
             >
                 <ProductGrid onShowProductDetails={handleShowProductDetails} />
             </SectionWrapper>
